@@ -752,33 +752,6 @@
     window.location.reload(); // reload page to restore scripts & events
         }*/
 
-        function printResults() {
-    const resultsContent = document.getElementById("resultsDisplay").innerHTML;
-    const printWindow = window.open('', '', 'height=800,width=1000');
-
-    printWindow.document.write(`
-        <html>
-            <head>
-                <title>Print Results</title>
-                <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-                <style>
-                    body { font-family: sans-serif; margin: 20px; }
-                    table { width: 100%; border-collapse: collapse; }
-                    th, td { border: 1px solid #ccc; padding: 8px; }
-                </style>
-            </head>
-            <body>
-                ${resultsContent}
-            </body>
-        </html>
-    `);
-
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
-        }
-
         // Disable right-click context menu
 document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -802,4 +775,7 @@ document.addEventListener('keydown', event => {
         });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96979459d2b25592',t:'MTc1NDI0MjYxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script src="print.js"></script>
+
+
 </html>
