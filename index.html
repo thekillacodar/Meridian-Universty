@@ -741,9 +741,34 @@
             }
         });
 
+        //Print function
 
+        function printResults() {
+    const printContents = document.getElementById("resultsDisplay").innerHTML;
+    const originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload(); // reload page to restore scripts & events
+        }
 
-        
+        // Disable right-click context menu
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Disable common inspect hotkeys
+document.addEventListener('keydown', event => {
+    if (
+        event.key === 'F12' ||                                // F12
+        (event.ctrlKey && event.shiftKey && event.key === 'I') || // Ctrl+Shift+I
+        (event.ctrlKey && event.shiftKey && event.key === 'J') || // Ctrl+Shift+J
+        (event.ctrlKey && event.key === 'U')                     // Ctrl+U
+    ) {
+        event.preventDefault();
+        alert('Inspecting the page is disabled!');
+    }
+});
+
+ 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             showSection('home');
